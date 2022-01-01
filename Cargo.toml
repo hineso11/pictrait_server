@@ -7,9 +7,10 @@ edition = "2021"
 
 [dependencies]
 graphql = { path = "graphql" }
-actix-web = "3.3.2"
-async-graphql-actix-web = "2.9.9"
-actix-rt = "1.1.0"
+server = { path = "./server" }
+tokio = { version = "1.15.0", features = ["full"] }
+env_logger = "0.9.0"
+log = "0.4.14"
 
 [workspace]
-members = ["graphql", "graphql-schema"]
+members = ["graphql", "graphql-schema", "server"]

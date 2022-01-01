@@ -1,8 +1,14 @@
 use graphql::new_schema;
+use log::info;
+use log::LevelFilter::Trace;
+use server::start_server;
 
-fn main() {
+#[tokio::main]
+async fn main() -> Result<(), std::io::Error> {
+    env_logger::builder().filter(None, Trace).init();
+
+    info!("Here");
+
     let schema = new_schema();
-    println!("{}", schema.sdl());
-
-    println!("Hello, world!");
+    start_server(schema, "127.0.0.1:8000")
 }
