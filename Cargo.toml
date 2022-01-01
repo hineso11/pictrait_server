@@ -6,3 +6,10 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+graphql = { path = "graphql" }
+actix-web = "3.3.2"
+async-graphql-actix-web = "2.9.9"
+actix-rt = "1.1.0"
+
+[workspace]
+members = ["graphql"]
