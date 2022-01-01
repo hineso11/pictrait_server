@@ -1000,6 +1000,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "graphql-schema"
+version = "0.1.0"
+dependencies = [
+ "graphql",
+]
+
+[[package]]
 name = "h2"
 version = "0.2.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
