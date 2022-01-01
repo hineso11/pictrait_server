@@ -7,8 +7,6 @@ use server::start_server;
 async fn main() -> Result<(), std::io::Error> {
     env_logger::builder().filter(None, Trace).init();
 
-    info!("Here");
-
     let schema = new_schema();
     start_server(schema, "127.0.0.1:8000")
 }
