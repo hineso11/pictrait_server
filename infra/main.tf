@@ -25,6 +25,22 @@ resource "digitalocean_droplet" "server" {
   droplet_agent = true
 }
 
+resource "digitalocean_firewall" "firewall" {
+  name = "firewall"
+  droplet_ids = [digitalocean_droplet.server.id]
+
+  inbound_rule {
+    protocol = "tcp"
+    port_range = "22"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol = "tcp"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+}
+
 output "server_ip" {
   value = digitalocean_droplet.server.ipv4_address
   description = "Server IP address"
