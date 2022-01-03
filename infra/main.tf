@@ -23,6 +23,7 @@ resource "digitalocean_droplet" "server" {
   ssh_keys = [var.ssh_key_id]
   resize_disk = false
   droplet_agent = true
+  user_data = file("user_data_script.sh")
 }
 
 resource "digitalocean_firewall" "firewall" {
